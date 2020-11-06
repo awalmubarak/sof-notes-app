@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/notes', 'NoteController@getAllNotes');
+Route::post('/notes', 'NoteController@addNote');
+Route::put('/notes/{id}', 'NoteController@updateNote');
+Route::delete('/notes/{id}', 'NoteController@deleteNote');
+
