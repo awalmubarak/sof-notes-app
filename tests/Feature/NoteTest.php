@@ -9,11 +9,6 @@ use Tests\TestCase;
 class NoteTest extends TestCase
 {
     use RefreshDatabase;
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
 
 
     public function test_if_can_retrieve_all_notes(){
