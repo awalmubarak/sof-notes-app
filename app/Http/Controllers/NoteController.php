@@ -7,7 +7,7 @@ use App\Note;
 
 class NoteController extends Controller
 {
-    function getAllNotes(){
+    function getAllNotes(Request $request){
         $notes = Note::orderBy('created_at', 'desc')->get();
         if ($request->wantsJson()) {
             return response()->json($notes, 200);
@@ -60,7 +60,7 @@ class NoteController extends Controller
          
     }
 
-    function DeleteNote($id){
+    function DeleteNote(Request $request, $id){
 
         $note = Note::find($id);
         if($note->delete()){
