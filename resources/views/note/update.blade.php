@@ -1,5 +1,6 @@
 <form action="{{route('notes.update', $note->id)}}" method="post">
     @csrf
+    {{method_field('PUT')}}
     <div>
         <label for="title">Title</label>
         <input type="text" name="title" value="{{$note->title}}">
