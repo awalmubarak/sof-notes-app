@@ -18,8 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/notes', 'NoteController@getAllNotes');
-Route::post('/notes', 'NoteController@addNote');
-Route::put('/notes/{id}', 'NoteController@updateNote');
-Route::delete('/notes/{id}', 'NoteController@deleteNote');
+Route::get('/notes', 'Api\NoteController@getAllNotes')->name('api.notes.all');
+Route::post('/notes-new', 'Api\NoteController@addNote')->name('api.notes.add');
+Route::put('/notes/{id}', 'Api\NoteController@updateNote')->name('api.notes.update');
+Route::delete('/notes/{id}', 'Api\NoteController@deleteNote')->name('api.notes.delete');
 
