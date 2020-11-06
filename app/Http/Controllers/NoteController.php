@@ -44,4 +44,16 @@ class NoteController extends Controller
         
          
     }
+
+    function DeleteNote($id){
+
+        $note = Note::find($id);
+        if($note->delete()){
+            return redirect()->route('notes')->with('success', 'Note deleted successfully');
+        }else{
+            return back()->with('error', 'Error occured while deleting note. please try again');
+        }
+        
+         
+    }
 }
