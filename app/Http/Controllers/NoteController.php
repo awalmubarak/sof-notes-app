@@ -28,4 +28,20 @@ class NoteController extends Controller
          
     }
 
+    function updateNote(Request $request, $id){
+        $request->validate([
+            'title'=>'required',
+            'body'=>'required'
+        ]);
+        $note = Note::find($id);
+        if($note){
+            $noteData = $request->only(['title', 'body']);
+            $note->update($noteData);
+            return redirect()->route('notes')->with('success', 'Note updated successfully');
+        }else{
+            return back()->with('error', 'Error occured while updating note. please try again');
+        }
+        
+         
+    }
 }
